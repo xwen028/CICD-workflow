@@ -11,3 +11,15 @@ jobs:
 
       - name: Checkout source
         uses: actions/checkout@v2
+
+
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MeilCli/slack-upload-file@v3
+        with:
+          slack_token: ${{ secrets.xoxb-6076502174195-6105490120417-C9gJkgXJwdBB8IGok9nU8vLk }}
+          channel_id: ${{ secrets.test }}
+          file_path: 'docs/*.txt'
+          initial_comment: 'post by slack-upload-file'
+          # thread_ts: 'option'
